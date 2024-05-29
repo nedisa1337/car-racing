@@ -7,6 +7,6 @@ public class manager : MonoBehaviour
 {
     public void Play()
     {
-        SceneManager.LoadScene("main");
+        SceneManager.LoadScene("ChooseMode");
     }
 }

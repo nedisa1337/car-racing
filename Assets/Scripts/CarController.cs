@@ -50,6 +50,31 @@ public class CarController : MonoBehaviour
     [Header("DEBUG")]
     public float[] slip = new float[4];
 
+    private void Awake()
+    {
+        if(PlayerPrefs.GetString("gearBox") == "manual")
+        {
+            gearChange = gearBox.manual;
+        }
+        else if (PlayerPrefs.GetString("gearBox") == "auto")
+        {
+            gearChange = gearBox.automatic;
+        }
+
+        if (PlayerPrefs.GetString("transmission") == "rear")
+        {
+            drive = driveType.rearWheelDrive;
+        }
+        else if (PlayerPrefs.GetString("transmission") == "front")
+        {
+            drive = driveType.frontWheelDrive;
+        }
+        else if(PlayerPrefs.GetString("transmission") == "all")
+        {
+            drive = driveType.allWheelDrive;
+        }
+    }
+
     private void Start()
     {
         getObjects();
